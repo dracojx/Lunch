@@ -1,4 +1,4 @@
-//= require jquery-2.2.0.min
+//= require jquery
 //= require_self
 
 $(function() {
@@ -18,20 +18,20 @@ function ajax(url, data, callback) {
 
 function init() {
 	$("#error .option#0, #room .option#0").click(function() {
-		ajax("/lunch/first", "", function(data) {
+		ajax("lunch/first", "", function(data) {
 			getQuestionOrRoom(data);
 		});
 	});
 
 	$("#room .option#1").click(function() {
-		ajax("/lunch/change", {
+		ajax("lunch/change", {
 			roomList : $("#roomList:hidden").val()
 		}, function(data) {
 			getQuestionOrRoom(data);
 		});
 	})
 
-	ajax("/lunch/first", "", function(data) {
+	ajax("lunch/first", "", function(data) {
 		getQuestionOrRoom(data);
 	});
 }
@@ -54,7 +54,7 @@ function getQuestionOrRoom(data) {
 			}
 
 			$("#question .option").click(function() {
-				ajax("/lunch/answer", {
+				ajax("lunch/answer", {
 					id : $(this).attr("id"),
 					history : data.history
 				}, function(data) {

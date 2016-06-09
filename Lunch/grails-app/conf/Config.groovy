@@ -102,7 +102,14 @@ log4j.main = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
-
+	
+	appenders {
+		file name:'weather', file:'logs/weather.log'
+	}
+	
+	info weather: 'grails.app.controllers.lunch.LunchController'
+	
+	
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts

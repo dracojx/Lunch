@@ -3,7 +3,7 @@ package lunch
 import grails.converters.JSON
 import groovy.json.JsonSlurper
 
-import org.slf4j.LoggerFactory
+import org.apache.commons.logging.LogFactory
 import org.springframework.core.io.ClassPathResource
 import org.springframework.core.io.support.PropertiesLoaderUtils
 
@@ -231,7 +231,6 @@ class LunchController {
 	}
 
 	def getWeather() {
-		def logger = LoggerFactory.getLogger('Weather')
 		def classpath = new ClassPathResource("weather.properties")
 		def weather = PropertiesLoaderUtils.loadProperties(classpath)
 		def suitable = weather.suitable
@@ -248,11 +247,10 @@ class LunchController {
 				result = it.value
 				return true
 			}
-
+			
 			if("ok".equalsIgnoreCase(result.status)) {
-				def logTime = new Date().format('yyyy-MM-dd HH:mm')
-				logger.info("$logTime NOW: ${result.now}")
-				logger.info("$logTime AQI: ${result.aqi}")
+				log.info("NOW: ${result.now}")
+				log.info("AQI: ${result.aqi}")
 				
 				def code =  result.now.cond.code[0]
 				def temp = result.now.fl[0] as int
@@ -270,7 +268,7 @@ class LunchController {
 				weather.setProperty('suitable', suitable.toString())
 				weather.store(new FileOutputStream(classpath.getFile()), '')
 			} else {
-				logger.error("Result: " + result)
+				log.info("RESULT: $result")
 				return null
 			}
 		}

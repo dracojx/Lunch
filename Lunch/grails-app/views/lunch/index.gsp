@@ -9,8 +9,8 @@
 <title><g:message code="title" /></title>
 
 <asset:link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<asset:stylesheet src="stylesheets/lunch.css" />
-<asset:javascript src="javascripts/lunch.js" />
+<asset:stylesheet src="/lunch.css" />
+<asset:javascript src="/lunch.js" />
 </head>
 <body>
 	<div class="main">
