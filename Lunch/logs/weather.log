@@ -1,2 +1,0 @@
-2016-06-09 13:37:41,529 [http-bio-8080-exec-10] INFO  lunch.LunchController  - NOW: [[cond:[code:104, txt:阴], fl:32, hum:32, pcpn:0, pres:1005, tmp:31, vis:8, wind:[deg:200, dir:西南风, sc:5-6, spd:32]]]
-2016-06-09 13:37:41,530 [http-bio-8080-exec-10] INFO  lunch.LunchController  - AQI: [[city:[aqi:131, pm10:80, pm25:131]]]
